@@ -30,11 +30,18 @@ const Update = async (req, res) => {
 };
 
 const GetData = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
   try {
-    const crud = await Crud.find();
-    return res.status(501).send({ entries: crud });
+    const crud = await Crud.find()
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .exec();
+    return res.status(501).send({ page, limit, data: crud });
   } catch (error) {
     return res.status(501).send({ msg: "Server failed..." });
   }
 };
 module.exports = { Insert, Delete, Update, GetData };
+
+// API Route http://localhost:3000/api?page=3
