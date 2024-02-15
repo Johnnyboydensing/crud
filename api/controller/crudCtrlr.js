@@ -5,7 +5,7 @@ const Crud = require("../model/crudModel");
 const Insert = async (req, res) => {
   try {
     const crud = await Crud.create(req.body);
-    return res.status(501).send({ msg: "Success..." });
+    return res.status(200).send({ msg: "Success..." });
   } catch (error) {
     return res.status(501).send({ msg: "Server failed..." });
   }
@@ -14,7 +14,7 @@ const Insert = async (req, res) => {
 const Delete = async (req, res) => {
   try {
     const crud = await Crud.findByIdAndDelete(req.params.id);
-    return res.status(501).send({ msg: "Success..." });
+    return res.status(200).send({ msg: "Success..." });
   } catch (error) {
     return res.status(501).send({ msg: "Server failed..." });
   }
@@ -23,7 +23,7 @@ const Delete = async (req, res) => {
 const Update = async (req, res) => {
   try {
     const crud = await Crud.findByIdAndUpdate(req.params.id, req.body);
-    return res.status(501).send({ msg: "Success..." });
+    return res.status(200).send({ msg: "Success..." });
   } catch (error) {
     return res.status(501).send({ msg: "Server failed..." });
   }
@@ -37,7 +37,7 @@ const GetData = async (req, res) => {
       .skip((page - 1) * limit)
       .limit(limit)
       .exec();
-    return res.status(501).send({ page, limit, data: crud });
+    return res.status(200).send({ page, limit, data: crud });
   } catch (error) {
     return res.status(501).send({ msg: "Server failed..." });
   }
