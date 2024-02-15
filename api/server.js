@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", crudRoute);
 app.use(
   cors({
-    origin: "http://192.168.1.17:8080/",
+    origin: ["http://192.168.1.17:8080/", "http://127.0.0.1:8080"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
