@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", crudRoute);
 app.use(
   cors({
-    origin: "file:///C:/Users/DENSING/Desktop/proj/client/index.html",
+    origin: "http://192.168.1.17:8080/",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
