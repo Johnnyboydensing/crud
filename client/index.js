@@ -2,10 +2,10 @@
 const pageSize = 10;
 let currentPage = 1;
 let category = "";
-
+let url = "https://crud-blgw.onrender.com/api";
 function fetchingData(page) {
   $.ajax({
-    url: `http://localhost:3000/api?page=${page}&category=${category}`,
+    url: `${url}?page=${page}&category=${category}`,
     method: "GET",
     success: function (response) {
       displayData(response);
@@ -92,7 +92,7 @@ function changeCategory(cat) {
 
 function deleteData(id) {
   $.ajax({
-    url: `http://localhost:3000/api/${id}`,
+    url: `${url}/${id}`,
     method: "DELETE",
     success: async function () {
       await Swal.fire({
@@ -133,7 +133,7 @@ function submitUpdatedData(id) {
     }
 
     $.ajax({
-      url: `http://localhost:3000/api/${id}`,
+      url: `${url}/${id}`,
       method: "PATCH",
       data: {
         API: api.val(),
@@ -176,7 +176,7 @@ function addPost() {
     }
 
     $.ajax({
-      url: `http://localhost:3000/api`,
+      url: `${url}`,
       method: "POST",
       data: {
         API: api.val(),
