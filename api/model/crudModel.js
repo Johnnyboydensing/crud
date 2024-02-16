@@ -7,6 +7,7 @@ const crudSchema = new mongoose.Schema({
   Description: String,
   Auth: String,
   HTTPS: String,
+  Link: String,
   Cors: String,
   Category: String,
 });
